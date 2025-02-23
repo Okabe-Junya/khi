@@ -27,10 +27,10 @@ import (
 )
 
 type mockLogFieldExtractor struct {
+	time        time.Time
 	id          string
 	mainMessage string
 	severity    enum.Severity
-	time        time.Time
 }
 
 // LogBody implements log.CommonLogFieldExtractor.
@@ -85,8 +85,5 @@ func MockLogWithId(id string) *log.LogEntity {
 		id:          id,
 		mainMessage: fmt.Sprintf("# mock log for %s", id),
 	})
-	if err != nil {
-		panic(err)
-	}
 	return yaml
 }

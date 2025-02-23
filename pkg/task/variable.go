@@ -22,9 +22,9 @@ import (
 
 // localBlockableVariable is a wrapper of a variable to wait the variable to be set by dependent task unit.
 type localBlockableVariable struct {
-	id       string
 	value    any
 	waiter   chan interface{}
+	id       string
 	resolved bool
 }
 

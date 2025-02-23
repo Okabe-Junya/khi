@@ -45,8 +45,9 @@ func TestFromResourceTypeReflection(t *testing.T) {
 		Values []TestCaseMapField `json:"values"`
 	}
 	type testStruct struct {
-		Scalar         int                            `json:"scalar"`
 		MapType        map[string]string              `json:"mapType"`
+		PointerType    *testStructSecondLayer         `json:"pointerType"`
+		Inline         InlineFields                   `json:",inline"`
 		PrimitiveArray []string                       `json:"primitive,omitempty" patchStrategy:"merge"`
 		MergeWithName  []TestCaseMapField             `json:"mergename,omitempty" patchStrategy:"merge" patchMergeKey:"name"`
 		Replace        []TestCaseMapField             `json:"replacearray,omitempty"`
@@ -54,8 +55,7 @@ func TestFromResourceTypeReflection(t *testing.T) {
 		ReplaceMerge   []testStructSecondLayer        `json:"replacemerge,omitempty"`
 		MergeReplace   []testStructSecondLayerReplace `json:"mergereplace,omitempty" patchStrategy:"merge" patchMergeKey:"name"`
 		ReplaceReplace []testStructSecondLayerReplace `json:"replacereplace,omitempty"`
-		Inline         InlineFields                   `json:",inline"`
-		PointerType    *testStructSecondLayer         `json:"pointerType"`
+		Scalar         int                            `json:"scalar"`
 	}
 	type recursiveStruct struct {
 		Name      string            `json:"name"`

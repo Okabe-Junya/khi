@@ -27,9 +27,9 @@ import (
 
 func TestJobParameters(t *testing.T) {
 	testCases := []struct {
-		name   string
 		want   *JobParameters
 		before func()
+		name   string
 	}{
 		{
 			name: "default",

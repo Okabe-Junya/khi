@@ -40,17 +40,17 @@ import (
 )
 
 type InspectionRunner struct {
+	runner                task.Runner
 	inspectionServer      *InspectionTaskServer
-	ID                    string
 	enabledFeatures       map[string]bool
 	availableDefinitions  *task.DefinitionSet
 	featuresDefinitions   *task.DefinitionSet
 	requiredDefinitions   *task.DefinitionSet
-	runner                task.Runner
-	runnerLock            sync.Mutex
 	metadata              *metadata.MetadataSet
 	cancel                context.CancelFunc
+	ID                    string
 	currentInspectionType string
+	runnerLock            sync.Mutex
 }
 
 func NewInspectionRunner(server *InspectionTaskServer) *InspectionRunner {

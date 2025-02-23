@@ -61,8 +61,8 @@ func TestGenerateK8sNodeQueryIsValid(t *testing.T) {
 func TestGenerateNodeNameSubstringLogFilter(t *testing.T) {
 	tests := []struct {
 		name               string
-		nodeNameSubstrings []string
 		want               string
+		nodeNameSubstrings []string
 	}{
 		{
 			name:               "empty",

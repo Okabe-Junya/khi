@@ -80,8 +80,8 @@ func TestChildLoggers(t *testing.T) {
 func TestTaskSlogHandler_getLogKind(t *testing.T) {
 	testCases := []struct {
 		Name     string
-		Record   slog.Record
 		Expected string
+		Record   slog.Record
 	}{
 		{
 			Name:     "simple example",

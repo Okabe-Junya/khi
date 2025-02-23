@@ -33,7 +33,6 @@ const (
 )
 
 type FormField struct {
-	Priority        int               `json:"-"`
 	Id              string            `json:"id"`
 	Type            string            `json:"type"`
 	Label           string            `json:"label"`
@@ -41,15 +40,16 @@ type FormField struct {
 	Hint            string            `json:"hint"`
 	HintType        FormFieldHintType `json:"hintType"`
 	Default         string            `json:"default"`
-	AllowEdit       bool              `json:"allowEdit"`
-	Suggestions     []string          `json:"suggestions"`
 	ValidationError string            `json:"validationError"`
+	Suggestions     []string          `json:"suggestions"`
+	Priority        int               `json:"-"`
+	AllowEdit       bool              `json:"allowEdit"`
 }
 
 // FormFieldSet is a metadata type used in frontend to generate the form fields.
 type FormFieldSet struct {
-	fieldsLock sync.RWMutex
 	fields     []FormField
+	fieldsLock sync.RWMutex
 }
 
 var _ metadata.Metadata = (*FormFieldSet)(nil)

@@ -26,9 +26,9 @@ import (
 )
 
 type mockHeaderProvider struct {
+	Error error
 	Key   string
 	Value string
-	Error error
 }
 
 // AddHeader implements HTTPHeaderProvider.

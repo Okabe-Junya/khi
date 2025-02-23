@@ -70,14 +70,14 @@ func (t testPopupForm) Validate(req *popup.PopupAnswerResponse) string {
 var _ popup.PopupForm = testPopupForm{}
 
 type testScenarioStep struct {
+	BodyValidator    func(t *testing.T, body string, stat map[string]string)
+	RequestGenerator func(t *testing.T, stat map[string]string) any
+	Before           func()
+	After            func(stat map[string]string)
 	RequestMethod    string
 	RequestPath      string
 	ExpectedCode     int
-	BodyValidator    func(t *testing.T, body string, stat map[string]string)
-	RequestGenerator func(t *testing.T, stat map[string]string) any
 	WaitAfter        time.Duration
-	Before           func()
-	After            func(stat map[string]string)
 }
 
 func createTestInspectionServer() (*inspection.InspectionTaskServer, error) {
@@ -717,10 +717,10 @@ func TestKHIServer_EndpointExistsWithConfigs(t *testing.T) {
 	testCases := []struct {
 		name           string
 		serverBasePath string
-		viewerMode     bool
 		requestMethod  string
 		requestPath    string
 		wantCode       int
+		viewerMode     bool
 	}{
 		{
 			name:           "custom server base path on non-viewer mode",
@@ -794,11 +794,11 @@ func TestKHIServerRedirects(t *testing.T) {
 	testCases := []struct {
 		name           string
 		serverBasePath string
-		viewerMode     bool
 		requestMethod  string
 		requestPath    string
-		wantCode       int
 		redirectTo     string
+		wantCode       int
+		viewerMode     bool
 	}{
 		{
 			name:          "the root path should be redirected to the default session path",

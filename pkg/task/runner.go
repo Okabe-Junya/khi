@@ -34,21 +34,21 @@ type Runner interface {
 var _ Runner = (*LocalRunner)(nil)
 
 type LocalRunner struct {
+	resultError           error
+	cache                 TaskVariableCache
 	resolvedDefinitionSet *DefinitionSet
 	resultVariable        *VariableSet
-	resultError           error
-	started               bool
-	stopped               bool
 	waiter                chan interface{}
 	taskStatuses          []*LocalRunnerTaskStat
-	cache                 TaskVariableCache
+	started               bool
+	stopped               bool
 }
 
 type LocalRunnerTaskStat struct {
-	Phase     string
-	Error     error
 	StartTime time.Time
 	EndTime   time.Time
+	Error     error
+	Phase     string
 }
 
 const (

@@ -47,17 +47,17 @@ type TextFormHintGenerator = func(ctx context.Context, value string, convertedVa
 // TextFormDefinitionBuilder is an utility to construct an instance of Definition for input form field.
 // This will generate the Definition instance with `Build()` method call after chaining several configuration methods.
 type TextFormDefinitionBuilder struct {
-	id                  string
-	label               string
-	priority            int
-	dependencies        []string
-	description         string
 	defaultValue        TextFormDefaultValueGenerator
 	validator           TextFormValidator
 	allowEditProvider   TextFormAllowEditProvider
 	suggestionsProvider TextFormSuggestionsProvider
 	hintGenerator       TextFormHintGenerator
 	converter           TextFormValueConverter
+	id                  string
+	label               string
+	description         string
+	dependencies        []string
+	priority            int
 }
 
 // NewInputFormDefinitionBuilder constructs an instace of TextFormDefinitionBuilder.

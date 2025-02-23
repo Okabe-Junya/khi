@@ -34,9 +34,9 @@ type Store interface {
 // FileSystemStore is one of implementation of Store.
 // It persist task result as a file in the data folder and read it from there.
 type FileSystemStore struct {
+	file     *os.File
 	filePath string
 	lock     sync.Mutex
-	file     *os.File
 }
 
 var _ Store = (*FileSystemStore)(nil)

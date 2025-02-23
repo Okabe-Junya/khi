@@ -28,8 +28,8 @@ func TestTimeRangeQuerySection(t *testing.T) {
 	testCases := []struct {
 		StartTime      time.Time
 		EndTime        time.Time
-		IncludeEnd     bool
 		ExpectedResult string
+		IncludeEnd     bool
 	}{
 		{
 			StartTime:  time.Date(2023, 3, 1, 12, 0, 0, 0, time.UTC),
@@ -89,8 +89,8 @@ func TestSplitToChildGroups(t *testing.T) {
 	testCases := []struct {
 		Name          string
 		Input         []string
-		InputMaxCount int
 		Expected      [][]string
+		InputMaxCount int
 	}{
 		{
 			Name:          "empty",

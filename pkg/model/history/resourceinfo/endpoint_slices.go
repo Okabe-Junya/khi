@@ -34,10 +34,10 @@ const (
 type EndppointSliceEndpointDiffOperation = string
 
 type EndpointSliceEndpointDiff struct {
-	Operation EndppointSliceEndpointDiffOperation
 	Current   *model.EndpointSliceEndpoint
 	Previous  *model.EndpointSliceEndpoint
 	TargetRef *model.K8sTargetRef
+	Operation EndppointSliceEndpointDiffOperation
 }
 
 type EndpointSliceInfo struct {
@@ -101,7 +101,7 @@ func (e *EndpointSliceInfo) GetLastDiffs(uid string) ([]*EndpointSliceEndpointDi
 	}
 	result := []*EndpointSliceEndpointDiff{}
 	if previous == nil {
-		if current.Endpoints == nil || len(current.Endpoints) == 0 {
+		if len(current.Endpoints) == 0 {
 			return []*EndpointSliceEndpointDiff{}, nil
 		}
 		for _, endpoint := range current.Endpoints {
@@ -160,15 +160,13 @@ func (e *EndpointSliceInfo) GetLastDiffs(uid string) ([]*EndpointSliceEndpointDi
 					Current:   current,
 					TargetRef: current.TargetRef,
 				})
-			} else {
-				if !previous.Conditions.SameWith(current.Conditions) {
-					result = append(result, &EndpointSliceEndpointDiff{
-						Operation: DiffChanged,
-						Previous:  previous,
-						Current:   current,
-						TargetRef: current.TargetRef,
-					})
-				}
+			} else if !previous.Conditions.SameWith(current.Conditions) {
+				result = append(result, &EndpointSliceEndpointDiff{
+					Operation: DiffChanged,
+					Previous:  previous,
+					Current:   current,
+					TargetRef: current.TargetRef,
+				})
 			}
 		}
 	}

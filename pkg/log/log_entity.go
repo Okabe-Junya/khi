@@ -26,9 +26,9 @@ import (
 // Log itself is just a structured data and the main functionality is provided from structure.Reader.
 // LogEntity adds few methods to get the common fields in logs like timestamp,id, severity ...etc.
 type LogEntity struct {
-	LogType      enum.LogType
 	commonFields CommonLogFieldExtractor
 	Fields       structure.Reader
+	LogType      enum.LogType
 }
 
 func NewLogEntity(reader *structure.Reader, commonFieldExtractor CommonLogFieldExtractor) *LogEntity {

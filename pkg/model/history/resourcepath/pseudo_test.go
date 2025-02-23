@@ -293,10 +293,12 @@ func TestOperation(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			result := Operation(tc.operationOwner, tc.operationMethod, tc.operationId)
 			if result.Path != tc.expected {
-				t.Errorf("Operation(%v,%v,%v).Path = %v, want %v", tc.operationOwner, tc.operationMethod, tc.operationId, result.Path, tc.expected)
+				t.Errorf("Operation(%v,%v,%v).Path = %v, want %v",
+					tc.operationOwner, tc.operationMethod, tc.operationId, result.Path, tc.expected)
 			}
 			if result.ParentRelationship != expectedParentRelationship {
-				t.Errorf("Operation(%v,%v,%v).ParentRelationship = %v, want %v", tc.operationOwner, tc.operationMethod, tc.operationId, result.ParentRelationship, expectedParentRelationship)
+				t.Errorf("Operation(%v,%v,%v).ParentRelationship = %v, want %v",
+					tc.operationOwner, tc.operationMethod, tc.operationId, result.ParentRelationship, expectedParentRelationship)
 			}
 		})
 	}
@@ -318,10 +320,12 @@ func TestStatus(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			result := Status(tc.statusOwner, tc.statusName)
 			if result.Path != tc.expected {
-				t.Errorf("Status(%v,%v).Path = %v, want %v", tc.statusOwner, tc.statusName, result.Path, tc.expected)
+				t.Errorf("Status(%v,%v).Path = %v, want %v",
+					tc.statusOwner, tc.statusName, result.Path, tc.expected)
 			}
 			if result.ParentRelationship != expectedParentRelationship {
-				t.Errorf("Status(%v,%v).ParentRelationship = %v, want %v", tc.statusOwner, tc.statusName, result.ParentRelationship, expectedParentRelationship)
+				t.Errorf("Status(%v,%v).ParentRelationship = %v, want %v",
+					tc.statusOwner, tc.statusName, result.ParentRelationship, expectedParentRelationship)
 			}
 		})
 	}
@@ -346,10 +350,12 @@ func TestNetworkEndpointGroupUnderResource(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			result := NetworkEndpointGroupUnderResource(tc.parent, tc.negNamespace, tc.negName)
 			if result.Path != tc.expected {
-				t.Errorf("NetworkEndpointGroupUnderResource(%v,%v,%v).Path = %v, want %v", tc.parent, tc.negNamespace, tc.negName, result.Path, tc.expected)
+				t.Errorf("NetworkEndpointGroupUnderResource(%v,%v,%v).Path = %v, want %v",
+					tc.parent, tc.negNamespace, tc.negName, result.Path, tc.expected)
 			}
 			if result.ParentRelationship != expectedParentRelationship {
-				t.Errorf("NetworkEndpointGroupUnderResource(%v,%v,%v).ParentRelationship = %v, want %v", tc.parent, tc.negNamespace, tc.negName, result.ParentRelationship, expectedParentRelationship)
+				t.Errorf("NetworkEndpointGroupUnderResource(%v,%v,%v).ParentRelationship = %v, want %v",
+					tc.parent, tc.negNamespace, tc.negName, result.ParentRelationship, expectedParentRelationship)
 			}
 		})
 	}
@@ -374,10 +380,12 @@ func TestOwnerSubresource(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			result := OwnerSubresource(tc.ownerPath, tc.ownedResourceName, tc.ownedResourceKind)
 			if result.Path != tc.expected {
-				t.Errorf("OwnerSubresource(%v,%v,%v).Path = %v, want %v", tc.ownerPath, tc.ownedResourceName, tc.ownedResourceKind, result.Path, tc.expected)
+				t.Errorf("OwnerSubresource(%v,%v,%v).Path = %v, want %v",
+					tc.ownerPath, tc.ownedResourceName, tc.ownedResourceKind, result.Path, tc.expected)
 			}
 			if result.ParentRelationship != expectedParentRelationship {
-				t.Errorf("OwnerSubresource(%v,%v,%v).ParentRelationship = %v, want %v", tc.ownerPath, tc.ownedResourceName, tc.ownedResourceKind, result.ParentRelationship, expectedParentRelationship)
+				t.Errorf("OwnerSubresource(%v,%v,%v).ParentRelationship = %v, want %v",
+					tc.ownerPath, tc.ownedResourceName, tc.ownedResourceKind, result.ParentRelationship, expectedParentRelationship)
 			}
 		})
 	}

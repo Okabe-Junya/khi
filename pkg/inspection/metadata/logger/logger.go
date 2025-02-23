@@ -35,11 +35,11 @@ var similarLogThrottlingLogCount = 10
 var _ slog.Handler = (*TaskSlogHandler)(nil)
 
 type TaskSlogHandler struct {
-	enableStdout  bool
 	stdoutHandler slog.Handler
 	stringHandler slog.Handler
-	minLogLevel   slog.Level
 	throttle      LogThrottler
+	minLogLevel   slog.Level
+	enableStdout  bool
 }
 
 type SerializableLogItem struct {
@@ -115,10 +115,10 @@ func (t *TaskSlogHandler) getLogKind(r slog.Record) string {
 }
 
 type TaskLogger struct {
-	id         string
-	name       string
 	logHandler slog.Handler
 	logBuffer  *bytes.Buffer
+	id         string
+	name       string
 }
 
 func (t *TaskLogger) Read() string {

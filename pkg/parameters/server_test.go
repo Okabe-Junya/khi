@@ -27,9 +27,9 @@ import (
 
 func TestServerParameters(t *testing.T) {
 	testCases := []struct {
-		name   string
 		want   *ServerParameters
 		before func()
+		name   string
 	}{
 		{
 			before: func() {

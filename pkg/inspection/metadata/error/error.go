@@ -24,9 +24,9 @@ import (
 const ErrorMessageSetMetadataKey = "error"
 
 type ErrorMessage struct {
-	ErrorId int    `json:"errorId"`
 	Message string `json:"message"`
 	Link    string `json:"link"`
+	ErrorId int    `json:"errorId"`
 }
 
 // ErrorMessageSet is a metadata type containing errors exposed to frontend.

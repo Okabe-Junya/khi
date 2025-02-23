@@ -23,11 +23,11 @@ import (
 type ProgressUpdatorOnTickFunc = func(tp *TaskProgress)
 
 type ProgressUpdator struct {
-	Progress *TaskProgress
-	Interval time.Duration
-	OnTick   ProgressUpdatorOnTickFunc
 	context  context.Context
+	Progress *TaskProgress
+	OnTick   ProgressUpdatorOnTickFunc
 	cancel   func()
+	Interval time.Duration
 }
 
 func NewProgressUpdator(progress *TaskProgress, interval time.Duration, onTick ProgressUpdatorOnTickFunc) *ProgressUpdator {

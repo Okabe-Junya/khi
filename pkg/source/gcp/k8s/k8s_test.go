@@ -27,9 +27,9 @@ import (
 
 func TestParseKubernetesOperation(t *testing.T) {
 	testCases := []struct {
+		ExpectedK8sOp *model.KubernetesObjectOperation
 		ResourceName  string
 		MethodName    string
-		ExpectedK8sOp *model.KubernetesObjectOperation
 	}{
 		{
 			ResourceName: "io.k8s.core/v1/namespaces/foo/pods/bar/status",

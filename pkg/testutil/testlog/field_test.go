@@ -25,8 +25,8 @@ import (
 func TestStringField(t *testing.T) {
 	testCases := []struct {
 		name        string
-		opts        []TestLogOpt
 		outputYaml  string
+		opts        []TestLogOpt
 		expectError bool
 	}{
 		{

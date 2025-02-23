@@ -195,10 +195,8 @@ func (s *DefinitionSet) sortTaskGraph() *SortTaskGraphResult {
 				if !isThreadUnsafe {
 					nextResolveTaskId = taskId
 					break
-				} else {
-					if nextResolvedTaskIdThreadUnsafeCandidate == "N/A" {
-						nextResolvedTaskIdThreadUnsafeCandidate = taskId
-					}
+				} else if nextResolvedTaskIdThreadUnsafeCandidate == "N/A" {
+					nextResolvedTaskIdThreadUnsafeCandidate = taskId
 				}
 			}
 		}

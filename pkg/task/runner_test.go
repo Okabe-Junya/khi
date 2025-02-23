@@ -27,9 +27,9 @@ import (
 )
 
 type debugRunnable struct {
+	resolves    []string
 	waitFor     int
 	shouldError bool
-	resolves    []string
 }
 
 var errFoo = fmt.Errorf("an error for test")
@@ -70,8 +70,8 @@ var _ Runnable = (*debugRunnable)(nil)
 func TestLocalRunnerToBeCompleted(t *testing.T) {
 	testCases := []struct {
 		definitions    []Definition
-		expectError    bool
 		expectedStatus []*LocalRunnerTaskStat
+		expectError    bool
 	}{
 		{
 			definitions: []Definition{

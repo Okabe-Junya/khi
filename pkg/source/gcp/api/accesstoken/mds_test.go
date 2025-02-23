@@ -29,8 +29,8 @@ import (
 )
 
 type mockMDSResponseHttpClient struct {
-	response string
 	err      error
+	response string
 }
 
 func newMockMDSResponseHttpClient(response string, err error) *mockMDSResponseHttpClient {
@@ -52,12 +52,12 @@ var _ httpclient.HTTPClient[*http.Response] = (*mockMDSResponseHttpClient)(nil)
 
 func TestMDSTokenResolver(t *testing.T) {
 	tests := []struct {
-		name             string
-		client           *httpclient.JSONReponseHttpClient[MDSResponse]
 		wantExpireAround time.Time
+		client           *httpclient.JSONReponseHttpClient[MDSResponse]
+		expiredToken     map[string]interface{}
+		name             string
 		want             string
 		wantErr          bool
-		expiredToken     map[string]interface{}
 	}{
 		{
 			name:             "MDSTokenResolver should return the token from the metadata server",

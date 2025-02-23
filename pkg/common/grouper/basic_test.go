@@ -28,9 +28,9 @@ func TestBasicGrouper(t *testing.T) {
 		Value int
 	}
 	testCases := []struct {
+		expected map[string][]inputStruct
 		name     string
 		input    []inputStruct
-		expected map[string][]inputStruct
 	}{
 		{
 			name:     "empty input",

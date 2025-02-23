@@ -28,11 +28,11 @@ func TestParseSetFilter(t *testing.T) {
 		"foobar": {"foo", "bar"},
 	}
 	testCases := []struct {
+		ExpectedResult *SetFilterParseResult
 		Filter         string
 		AllowAny       bool
 		AllowSubtract  bool
 		ToLowerCase    bool
-		ExpectedResult *SetFilterParseResult
 	}{
 		{
 			Filter:        "",

@@ -112,12 +112,12 @@ func TestMergedTypes(t *testing.T) {
 
 func TestMergedKeys(t *testing.T) {
 	testCases := []struct {
+		keyResolver  *MergeConfigResolver
 		name         string
 		prev         string
 		patch        string
 		childField   string
 		expectedKeys []string
-		keyResolver  *MergeConfigResolver
 	}{
 		{
 			name: "basic map merge",
@@ -458,11 +458,11 @@ $setElementOrder/foo:
 
 func TestMergedValues(t *testing.T) {
 	testCases := []struct {
+		keyResolver *MergeConfigResolver
 		name        string
 		prev        string
 		patch       string
 		expected    string
-		keyResolver *MergeConfigResolver
 	}{
 		{
 			name:     "merge scalar",
@@ -1110,9 +1110,9 @@ bar:
 
 func TestSplitPatchKeysByFieldsOrMergeAttributes(t *testing.T) {
 	testCases := []struct {
+		expected  *strategicMergePatchKeys
 		name      string
 		patchKeys []string
-		expected  *strategicMergePatchKeys
 	}{
 		{
 			name: "basic case",

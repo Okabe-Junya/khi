@@ -75,9 +75,9 @@ func TestNewMapWithScalarValue(t *testing.T) {
 
 func TestNewScalarNode(t *testing.T) {
 	cases := []struct {
+		expected    *yaml.Node
 		description string
 		value       string
-		expected    *yaml.Node
 	}{
 		{
 			description: "value=foo",
@@ -108,13 +108,13 @@ func TestDecomposeMapElement(t *testing.T) {
 	mapNode.Content = append(mapNode.Content, NewMapElementWithScalarValue("qux", "qux-value")...)
 
 	cases := []struct {
-		description string
-		mapNode     *yaml.Node
-		index       int
-		expected    struct {
+		mapNode  *yaml.Node
+		expected struct {
 			Key   string
 			Value string
 		}
+		description string
+		index       int
 	}{
 		{
 			description: "first map element",
@@ -167,13 +167,13 @@ func TestGetMapElement(t *testing.T) {
 	mapNode.Content = append(mapNode.Content, NewMapElementWithScalarValue("qux", "qux-value")...)
 
 	cases := []struct {
-		description string
-		key         string
-		mapNode     *yaml.Node
-		expected    struct {
+		expected struct {
 			Result *yaml.Node
 			Error  error
 		}
+		mapNode     *yaml.Node
+		description string
+		key         string
 	}{
 		{
 			description: "An existing element",

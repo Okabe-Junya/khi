@@ -22,10 +22,10 @@ import (
 
 // IndeterminateUpdator updates progress bar during a procedure can't report its progress.
 type IndeterminateUpdator struct {
-	Progress *TaskProgress
-	Interval time.Duration
 	context  context.Context
+	Progress *TaskProgress
 	cancel   func()
+	Interval time.Duration
 }
 
 func NewIndeterminateUpdator(progress *TaskProgress, interval time.Duration) *IndeterminateUpdator {

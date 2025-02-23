@@ -27,13 +27,13 @@ import (
 )
 
 type FormTestCase struct {
-	Name              string
-	Input             string
 	ExpectedValue     any
-	ExpectedFormField form.FormField
-	Dependencies      []task.Definition
 	Before            func()
 	After             func()
+	ExpectedFormField form.FormField
+	Name              string
+	Input             string
+	Dependencies      []task.Definition
 }
 
 func TestTextForms(t *testing.T, label string, formVariable task.Definition, testCases []*FormTestCase, cmpOptions ...cmp.Option) {

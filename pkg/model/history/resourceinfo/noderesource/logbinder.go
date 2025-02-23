@@ -21,8 +21,8 @@ import (
 
 // LogBinder finds ids/names in log body and returns associated resource associattion.
 type LogBinder struct {
-	nodeLogBinderMutex sync.RWMutex
 	nodeLogBinders     map[string]*nodeLogBinder
+	nodeLogBinderMutex sync.RWMutex
 }
 
 // NewLogBinder returns a new instance of LogBinder
@@ -54,8 +54,8 @@ func (n *LogBinder) GetBoundResourcesForLogBody(nodeName string, logBody string)
 }
 
 type nodeLogBinder struct {
-	nodeResourceBindingsMutex sync.RWMutex
 	nodeResourceBindings      []ResourceBinding
+	nodeResourceBindingsMutex sync.RWMutex
 }
 
 func newNodeLogBinder() *nodeLogBinder {

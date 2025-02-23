@@ -56,9 +56,9 @@ func TestReader(t *testing.T) {
 	readerFactory := NewReaderFactory(&structuredatastore.OnMemoryStructureDataStore{})
 	type childTestCase struct {
 		readerPath  string
-		wantError   bool
-		resultCount int
 		filters     [][]ReaderFilter
+		resultCount int
+		wantError   bool
 	}
 	testCases := []struct {
 		Input     string
@@ -180,11 +180,8 @@ func TestReader(t *testing.T) {
 							return
 						}
 						t.Fatal("no error returned")
-					} else {
-						if len(readers) != ctc.resultCount {
-							t.Errorf("the result is not matching with the expected count: expected:%d,actual:%d\n \nvalues:%v", ctc.resultCount, len(readers), readers)
-
-						}
+					} else if len(readers) != ctc.resultCount {
+						t.Errorf("the result is not matching with the expected count: expected:%d,actual:%d\n \nvalues:%v", ctc.resultCount, len(readers), readers)
 					}
 				})
 			}

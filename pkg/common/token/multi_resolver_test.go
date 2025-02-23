@@ -23,10 +23,10 @@ import (
 
 func TestMultiTokenResolver_Resolve(t *testing.T) {
 	testCases := []struct {
+		expectedToken *Token
 		name          string
 		resolvers     []TokenResolver
 		wantErr       bool
-		expectedToken *Token
 	}{
 		{
 			name:          "without any resolvers",

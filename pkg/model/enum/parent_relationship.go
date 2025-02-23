@@ -34,13 +34,13 @@ const (
 
 // parentRelationshipFrontendMetadata is a type defined for each parent relationship types.
 type ParentRelationshipFrontendMetadata struct {
-	Visible              bool
 	EnumKeyName          string
 	Label                string
 	Hint                 string
 	LabelColor           string
 	LabelBackgroundColor string
 	SortPriority         int
+	Visible              bool
 }
 
 var ParentRelationships = map[ParentRelationship]ParentRelationshipFrontendMetadata{

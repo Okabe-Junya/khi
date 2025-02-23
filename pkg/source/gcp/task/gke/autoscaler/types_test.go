@@ -25,9 +25,9 @@ import (
 
 func TestAutoscalerDecisionLogTypesToMatchLogString(t *testing.T) {
 	testCases := []struct {
+		ExpectedResult any
 		Name           string
 		InputJSON      string
-		ExpectedResult any
 	}{
 		{
 			Name: "Scale Up",
@@ -243,9 +243,9 @@ func TestAutoscalerDecisionLogTypesToMatchLogString(t *testing.T) {
 
 func TestAutoscalerNoDecisionLogTypesToMatchLogString(t *testing.T) {
 	testCases := []struct {
+		ExpectedResult noDecisionStatus
 		Name           string
 		InputJSON      string
-		ExpectedResult noDecisionStatus
 	}{
 		{
 			Name: "noScaleUp",
@@ -432,9 +432,9 @@ func TestAutoscalerNoDecisionLogTypesToMatchLogString(t *testing.T) {
 
 func TestAutoscalerResultInfoLogTypesToMatchLogString(t *testing.T) {
 	testCases := []struct {
+		ExpectedResult any
 		Name           string
 		InputJSON      string
-		ExpectedResult any
 	}{{
 		Name: "ResultInfo",
 		InputJSON: `{

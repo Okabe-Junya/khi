@@ -27,9 +27,9 @@ import (
 
 func TestDebugParameters(t *testing.T) {
 	testCases := []struct {
-		name   string
 		want   *DebugParameters
 		before func()
+		name   string
 	}{
 		{
 			before: func() {

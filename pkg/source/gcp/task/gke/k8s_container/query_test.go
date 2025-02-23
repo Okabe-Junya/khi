@@ -23,10 +23,10 @@ import (
 
 func TestGenerateK8sContainerQueryIsValid(t *testing.T) {
 	testCases := []struct {
-		Name            string
-		ClusterName     string
 		PodNameFilter   *queryutil.SetFilterParseResult
 		NamespaceFilter *queryutil.SetFilterParseResult
+		Name            string
+		ClusterName     string
 	}{
 		{
 			Name:            "with no set filters",

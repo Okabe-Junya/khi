@@ -52,12 +52,9 @@ type InspectionRunResult struct {
 
 // InspectionTaskServer manages tasks and provides apis to get task related information in JSON convertible type.
 type InspectionTaskServer struct {
-	// rootTaskSet is the set of the all definitions in KHI.
-	rootTaskSet *task.DefinitionSet
-	// inspectionTypes are kinds of tasks. Users will select this at first to filter togglable feature tasks.
+	rootTaskSet     *task.DefinitionSet
+	tasks           map[string]*InspectionRunner
 	inspectionTypes []*InspectionType
-	// tasks are generated tasks
-	tasks map[string]*InspectionRunner
 }
 
 func NewServer() (*InspectionTaskServer, error) {

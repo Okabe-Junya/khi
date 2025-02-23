@@ -30,9 +30,9 @@ import (
 
 func TestParseDeletionStatus(t *testing.T) {
 	testCases := []struct {
+		inputOperation *model.KubernetesObjectOperation
 		name           string
 		inputYaml      string
-		inputOperation *model.KubernetesObjectOperation
 		expectedStatus DeletionStatus
 	}{
 		{
@@ -105,9 +105,9 @@ func TestParseDeletionStatus(t *testing.T) {
 func TestParseCreationTime(t *testing.T) {
 	defaultTime := time.Date(2000, 1, 1, 0, 0, 0, 0, time.UTC)
 	testCases := []struct {
+		expectedTime time.Time
 		name         string
 		inputYaml    string
-		expectedTime time.Time
 	}{
 		{
 			name: "the simplest deleted case",

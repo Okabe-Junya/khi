@@ -35,9 +35,9 @@ func TestCloudErrorReportWriterKeepWorkingWhenReporterFailsToWrite(t *testing.T)
 
 func TestReporterMetadata(t *testing.T) {
 	testCases := []struct {
-		name           string
 		inputMetadata  map[string]string
 		expectedOutput map[string]string
+		name           string
 	}{
 		{
 			name:           "no metadata",

@@ -21,8 +21,8 @@ type StorageProviderGenerator = func() CacheItemStorageProvider
 type CacheItemReleaseStrategyGenerator = func() CacheItemReleaseStrategy
 
 type ShardingCache[T any] struct {
-	caches           []Cache[T]
 	shardingProvider common.MapShardingProvider
+	caches           []Cache[T]
 }
 
 // Get implements Cache.

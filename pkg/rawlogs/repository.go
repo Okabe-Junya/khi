@@ -28,9 +28,9 @@ import (
 type FilesystemRepository struct {
 	writeLock        *sync.Mutex
 	file             *os.File
-	exported         bool
 	workspaceEntries []workspaceEntry
 	lastOffset       uint64
+	exported         bool
 }
 
 type fileSystemRepositoryIterator struct {

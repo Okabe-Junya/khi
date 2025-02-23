@@ -30,10 +30,10 @@ import (
 func TestParseSingleEndpoint(t *testing.T) {
 	ctx := context.Background()
 	testCases := []struct {
-		name              string
 		endpoint          *model.EndpointSliceEndpoint
 		prevEndpointSlice *model.EndpointSlice
 		expected          *singleEndpointParseResult
+		name              string
 	}{
 		{
 			name: "Endpoint for Pod, condition changed to Ready",

@@ -25,8 +25,8 @@ import (
 func TestParseTime(t *testing.T) {
 	JST := time.FixedZone("JST", 9*60*60)
 	testCases := []struct {
-		Input    string
 		Expected time.Time
+		Input    string
 		Error    bool
 	}{
 		{

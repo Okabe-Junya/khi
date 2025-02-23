@@ -27,12 +27,11 @@ var HeaderMetadataKey = "header"
 type Header struct {
 	InspectionType         string `json:"inspectionType"`
 	InspectionTypeIconPath string `json:"inspectionTypeIconPath"`
+	SuggestedFileName      string `json:"suggestedFilename"`
 	StartTimeUnixSeconds   int64  `json:"startTimeUnixSeconds"`
 	EndTimeUnixSeconds     int64  `json:"endTimeUnixSeconds"`
 	InspectTimeUnixSeconds int64  `json:"inspectTimeUnixSeconds"`
-	// KHI frontend uses this metadata value for the default value of khi file name on download.
-	SuggestedFileName string `json:"suggestedFilename"`
-	FileSize          int    `json:"fileSize,omitempty"`
+	FileSize               int    `json:"fileSize,omitempty"`
 }
 
 var _ metadata.Metadata = (*Header)(nil)

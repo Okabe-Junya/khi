@@ -22,8 +22,8 @@ type TestRunTaskParameterOpt interface {
 }
 
 type priorTaskResultOpt struct {
-	taskId    string
 	parameter any
+	taskId    string
 }
 
 // AddParam implements RunSingleTaskParameterOpt.

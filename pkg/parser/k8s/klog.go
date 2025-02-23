@@ -43,8 +43,8 @@ var severityKlogFieldNames = []string{"level", "severity"}
 // https://github.com/kubernetes/klog/blob/v2.80.1/klog.go#L626-L645
 // TODO: We need to handle time field in later, but ignore it for now because times can be obtained from the other source.
 type klogHeader struct {
-	Severity enum.Severity
 	Message  string
+	Severity enum.Severity
 }
 
 // ignore `file`,`threadid` and `line` part.

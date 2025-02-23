@@ -34,18 +34,18 @@ import (
 
 // singleEndpointParseResult is a type used in the middle of parsing an endpoint of entire EndpointSlice resource.
 type singleEndpointParseResult struct {
+	manifest           string
 	verb               enum.RevisionVerb
 	state              enum.RevisionState
-	manifest           string
 	isEndpointForPod   bool
 	hasCoditionChanged bool
 }
 
 // endpointSliceParseResult is a type used in the middle of parsing entire EndpointSlice resource.
 type endpointsParseResult struct {
+	manifest         string
 	verb             enum.RevisionVerb
 	state            enum.RevisionState
-	manifest         string
 	hasConditionInfo bool
 }
 

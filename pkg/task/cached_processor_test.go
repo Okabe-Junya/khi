@@ -42,8 +42,8 @@ func TestCachedProcessorStoreValue(t *testing.T) {
 	}
 	// First task is the cachable task.
 	taskSeries := []struct {
-		ShouldUseCache bool
 		Tasks          []Definition
+		ShouldUseCache bool
 	}{
 		{
 			ShouldUseCache: false,

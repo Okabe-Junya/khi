@@ -33,12 +33,10 @@ type SetFilterAliasToItemsMap = map[string][]string
 var validElementRegex = regexp.MustCompile(`^[@a-zA-Z0-9\-_]+$`)
 
 type SetFilterParseResult struct {
+	ValidationError string
 	Additives       []string
 	Subtractives    []string
-	ValidationError string
-	// The default mode is additive mode. The empty filter means none should be selected.
-	// SubtractMode will match anything. The empty filter means anything should be selected, this field will be true when user specify @any in the field.
-	SubtractMode bool
+	SubtractMode    bool
 }
 
 func ParseSetFilter(filter string, aliases SetFilterAliasToItemsMap, allowAny bool, allowSubtract bool, convertToLowerCase bool) (*SetFilterParseResult, error) {

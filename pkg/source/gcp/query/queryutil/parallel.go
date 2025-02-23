@@ -34,12 +34,12 @@ import (
 )
 
 type ParallelQueryWorker struct {
-	workerCount int
-	baseQuery   string
 	startTime   time.Time
 	endTime     time.Time
 	apiClient   api.GCPClient
 	pool        *worker.Pool
+	baseQuery   string
+	workerCount int
 }
 
 func NewParallelQueryWorker(pool *worker.Pool, apiClient api.GCPClient, baseQuery string, startTime time.Time, endTime time.Time, workerCount int) *ParallelQueryWorker {
