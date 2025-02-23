@@ -25,8 +25,8 @@ import (
 func TestParseResourceNameOfOnPremAPI(t *testing.T) {
 	// Define a struct to hold test cases
 	type testCase struct {
-		resourceName string
 		expected     *onpremResource
+		resourceName string
 	}
 
 	// Create test cases with various input scenarios

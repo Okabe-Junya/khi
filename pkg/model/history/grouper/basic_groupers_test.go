@@ -25,9 +25,9 @@ import (
 
 func TestAllDependentLogGrouper(t *testing.T) {
 	tests := []struct {
+		wantKeys map[string]struct{}
 		name     string
 		logs     []*log.LogEntity
-		wantKeys map[string]struct{}
 	}{
 		{
 			name:     "empty logs",
@@ -65,9 +65,9 @@ func TestAllDependentLogGrouper(t *testing.T) {
 
 func TestAllIndependentLogGrouper(t *testing.T) {
 	tests := []struct {
+		wantKeys map[string]struct{}
 		name     string
 		logs     []*log.LogEntity
-		wantKeys map[string]struct{}
 	}{
 		{
 			name:     "empty logs",
@@ -107,9 +107,9 @@ func TestAllIndependentLogGrouper(t *testing.T) {
 
 func TestSingleStringFieldKeyLogGrouper(t *testing.T) {
 	tests := []struct {
+		wantKeys map[string]struct{}
 		name     string
 		logs     []*log.LogEntity
-		wantKeys map[string]struct{}
 	}{
 		{
 			name:     "empty logs",

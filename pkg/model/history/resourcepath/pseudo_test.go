@@ -278,10 +278,10 @@ func TestOperation(t *testing.T) {
 	expectedParentRelationship := enum.RelationshipOperation
 	testCases := []struct {
 		name            string
-		operationOwner  ResourcePath
 		operationMethod string
 		operationId     string
 		expected        string
+		operationOwner  ResourcePath
 	}{
 		{"All specified", ResourcePath{Path: "foo"}, "GET", "1234567890", "foo#GET-1234567890"},
 		{"Empty operation method", ResourcePath{Path: "foo"}, "", "1234567890", "foo#unknown-1234567890"},
@@ -306,9 +306,9 @@ func TestStatus(t *testing.T) {
 	expectedParentRelationship := enum.RelationshipResourceCondition
 	testCases := []struct {
 		name        string
-		statusOwner ResourcePath
 		statusName  string
 		expected    string
+		statusOwner ResourcePath
 	}{
 		{"All specified", ResourcePath{Path: "foo"}, "status", "foo#status"},
 		{"Empty status name", ResourcePath{Path: "foo"}, "", "foo#unknown"},
@@ -331,10 +331,10 @@ func TestNetworkEndpointGroupUnderResource(t *testing.T) {
 	expectedParentRelationship := enum.RelationshipNetworkEndpointGroup
 	testCases := []struct {
 		name         string
-		parent       ResourcePath
 		negNamespace string
 		negName      string
 		expected     string
+		parent       ResourcePath
 	}{
 		{"All specified", ResourcePath{Path: "foo"}, "my-namespace", "my-neg", "foo#my-namespace(my-neg)"},
 		{"Empty neg namespace", ResourcePath{Path: "foo"}, "", "my-neg", "foo#unknown(my-neg)"},
@@ -359,10 +359,10 @@ func TestOwnerSubresource(t *testing.T) {
 	expectedParentRelationship := enum.RelationshipOwnerReference
 	testCases := []struct {
 		name              string
-		ownerPath         ResourcePath
 		ownedResourceName string
 		ownedResourceKind string
 		expected          string
+		ownerPath         ResourcePath
 	}{
 		{"All specified", ResourcePath{Path: "foo"}, "bar", "Deployment", "foo#bar[kind:Deployment]"},
 		{"Empty ownedResourceName", ResourcePath{Path: "foo"}, "", "Deployment", "foo#unknown[kind:Deployment]"},

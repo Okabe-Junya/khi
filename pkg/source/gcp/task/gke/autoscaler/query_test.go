@@ -24,8 +24,8 @@ func TestGenerateAutoscalerQuery(t *testing.T) {
 	testCases := []struct {
 		projectId     string
 		clusterName   string
-		excludeStatus bool
 		expected      string
+		excludeStatus bool
 	}{
 		{
 			projectId:     "my-project",

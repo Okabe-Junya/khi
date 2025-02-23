@@ -38,10 +38,10 @@ import (
 )
 
 type ServerConfig struct {
-	ViewerMode       bool
-	StaticFolderPath string
 	ResourceMonitor  ResourceMonitor
+	StaticFolderPath string
 	ServerBasePath   string
+	ViewerMode       bool
 }
 
 func redirectMiddleware(exactPath string, redirectTo string) gin.HandlerFunc {

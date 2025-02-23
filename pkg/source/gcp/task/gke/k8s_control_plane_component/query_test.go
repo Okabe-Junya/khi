@@ -24,10 +24,10 @@ import (
 
 func TestGenerateK8sControlPlaneQuery(t *testing.T) {
 	testCases := []struct {
+		InputControlplaneComponentNameFilter *queryutil.SetFilterParseResult
 		ExpectedQuery                        string
 		InputClusterName                     string
 		InputProjectName                     string
-		InputControlplaneComponentNameFilter *queryutil.SetFilterParseResult
 	}{
 		{
 			InputClusterName:                     "foo-cluster",

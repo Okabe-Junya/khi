@@ -221,9 +221,9 @@ func TestGetTimelineBuilder(t *testing.T) {
 
 func TestGetChildResources(t *testing.T) {
 	testCases := []struct {
+		Parent            string
 		Resources         []string
 		ExpectedTimelines []string
-		Parent            string
 	}{
 		{
 			Resources: []string{

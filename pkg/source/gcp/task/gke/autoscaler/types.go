@@ -21,12 +21,12 @@ import (
 )
 
 type decision struct {
-	DecideTime      string           `json:"decideTime"`
-	EventID         string           `json:"eventId"`
 	ScaleUp         *scaleUp         `json:"scaleUp"`
 	ScaleDown       *scaleDown       `json:"scaleDown"`
 	NodePoolCreated *nodePoolCreated `json:"nodePoolCreated"`
 	NodePoolDeleted *nodePoolDeleted `json:"nodePoolDeleted"`
+	DecideTime      string           `json:"decideTime"`
+	EventID         string           `json:"eventId"`
 }
 
 // https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-autoscaler-visibility#example_2
@@ -41,8 +41,8 @@ type scaleDown struct {
 }
 
 type nodePoolCreated struct {
-	NodePools           []nodepool `json:"nodePools"`
 	TriggeringScaleUpId string     `json:"triggeringScaleUpId"`
+	NodePools           []nodepool `json:"nodePools"`
 }
 
 type nodePoolDeleted struct {
@@ -73,21 +73,21 @@ type controller struct {
 }
 
 type nodeToBeRemoved struct {
+	Node                  node  `json:"node"`
 	EvictedPods           []pod `json:"evictedPods"`
 	EvictedPodsTotalCount int   `json:"evictedPodsTotalCount"`
-	Node                  node  `json:"node"`
 }
 
 type node struct {
-	CpuRatio int    `json:"cpuRatio"`
-	MemRatio int    `json:"memRatio"`
 	Mig      mig    `json:"mig"`
 	Name     string `json:"name"`
+	CpuRatio int    `json:"cpuRatio"`
+	MemRatio int    `json:"memRatio"`
 }
 
 type nodepool struct {
-	Migs []mig  `json:"migs"`
 	Name string `json:"name"`
+	Migs []mig  `json:"migs"`
 }
 
 type skippedMig struct {
@@ -122,9 +122,9 @@ type rejectedMig struct {
 }
 
 type noDecisionStatus struct {
-	MeasureTime string       `json:"measureTime"`
 	NoScaleUp   *noScaleUp   `json:"noScaleUp"`
 	NoScaleDown *noScaleDown `json:"noScaleDown"`
+	MeasureTime string       `json:"measureTime"`
 }
 
 type noScaleUp struct {
@@ -134,9 +134,9 @@ type noScaleUp struct {
 }
 
 type noScaleDown struct {
+	Reason          reason            `json:"reason"`
 	Nodes           []noScaleDownNode `json:"nodes"`
 	NodesTotalCount int               `json:"nodesTotalCount"`
-	Reason          reason            `json:"reason"`
 }
 
 type noScaleDownNode struct {
@@ -149,8 +149,8 @@ type errorMsg struct {
 }
 
 type result struct {
+	ErrorMsg *errorMsg `json:"errorMsg"`
 	EventID  string    `json:"eventId"`
-	ErrorMsg *errorMsg `json:"errorMsg"` // Pointer to allow for optional error
 }
 
 type resultInfo struct {

@@ -56,9 +56,9 @@ func TestReader(t *testing.T) {
 	readerFactory := NewReaderFactory(&structuredatastore.OnMemoryStructureDataStore{})
 	type childTestCase struct {
 		readerPath  string
-		wantError   bool
-		resultCount int
 		filters     [][]ReaderFilter
+		resultCount int
+		wantError   bool
 	}
 	testCases := []struct {
 		Input     string

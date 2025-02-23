@@ -28,14 +28,14 @@ import (
 
 type RetryHttpClient struct {
 	Client                             HTTPClient[*http.Response]
+	tokenRefresher                     token.TokenRefresher
+	RetriableHttpCodes                 []int
+	RetriableWithRefreshTokenHttpCodes []int
 	MinWaitSeconds                     int
 	MaxWaitSeconds                     int
 	MaxRetryCount                      int
-	RetriableHttpCodes                 []int
-	RetriableWithRefreshTokenHttpCodes []int
 	currentWaitSeconds                 int
-	timeUnit                           time.Duration // For testing purpose to make test faster
-	tokenRefresher                     token.TokenRefresher
+	timeUnit                           time.Duration
 }
 
 func NewRetryHttpClient(baseClient HTTPClient[*http.Response], minWaitSeconds int, maxWaitSeconds int, maxRetryCount int, retriableHttpCodes []int, retriableWithRefreshTokenHttpCodes []int, tokenRefresher token.TokenRefresher) *RetryHttpClient {

@@ -29,8 +29,8 @@ import (
 var fieldCommaEscape = "@@COMMA@@"
 
 type sortedMap struct {
-	keys   []string
 	values map[string]any
+	keys   []string
 }
 
 // MarshalJSON implements json.Marshaler.

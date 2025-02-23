@@ -166,9 +166,9 @@ func TestBasicTokenStore_RefreshTokenReturnsErrorWhenTokenResolutionFails(t *tes
 
 func TestBasicTokenStore_ISValidityAssured(t *testing.T) {
 	testCases := []struct {
+		store  *BasicTokenStore
 		name   string
 		expect bool
-		store  *BasicTokenStore
 	}{
 		{
 			name:   "without the last token",

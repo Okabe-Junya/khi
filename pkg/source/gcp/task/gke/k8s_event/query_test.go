@@ -25,12 +25,12 @@ import (
 
 func TestGenerateK8sEventQuery(t *testing.T) {
 	testCases := []struct {
+		InputStartTime       time.Time
+		InputEndTime         time.Time
+		InputNamespaceFilter *queryutil.SetFilterParseResult
 		ExpectedQuery        string
 		InputClusterName     string
 		InputProjectName     string
-		InputNamespaceFilter *queryutil.SetFilterParseResult
-		InputStartTime       time.Time
-		InputEndTime         time.Time
 	}{
 		{
 			InputClusterName: "foo-cluster",
@@ -58,10 +58,10 @@ jsonPayload.involvedObject.namespace:"" -- ignore events in k8s object with name
 
 func TestGenerateK8sEventQueryIsValid(t *testing.T) {
 	testCases := []struct {
+		NamespaceFilter *queryutil.SetFilterParseResult
 		Name            string
 		ClusterName     string
 		ProjectName     string
-		NamespaceFilter *queryutil.SetFilterParseResult
 	}{
 		{
 			Name:            "ClusterScoped",

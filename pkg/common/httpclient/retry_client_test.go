@@ -86,18 +86,18 @@ func TestIsRetriable(t *testing.T) {
 
 func TestRetryBehavior(t *testing.T) {
 	type testCase struct {
-		Title                       string
-		ResponseCodes               []int
-		RequestBody                 string
 		RequestHeaders              map[string]string
-		ExpectedRequestCount        int
+		ExpectedHeaders             map[string]string
+		Title                       string
+		RequestBody                 string
 		ExpectedError               string
+		ResponseCodes               []int
+		ExpectedRequestCount        int
 		MinWaitTime                 int
 		MaxWaitTime                 int
 		MaxRetryCount               int
 		ExpectedLastCurrentWaitTime int
 		ExpectedTokenRefresherCall  int
-		ExpectedHeaders             map[string]string
 	}
 	testCases := []testCase{
 		{

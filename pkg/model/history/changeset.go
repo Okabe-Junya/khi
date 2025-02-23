@@ -31,10 +31,10 @@ type ChangeSet struct {
 	revisions                    map[string][]*StagingResourceRevision
 	events                       map[string][]*ResourceEvent
 	resourceRelationshipRewrites map[string]enum.ParentRelationship
-	annotations                  []LogAnnotation
-	logSummaryRewrite            string
-	logSeverityRewrite           enum.Severity
 	aliases                      map[string][]string
+	logSummaryRewrite            string
+	annotations                  []LogAnnotation
+	logSeverityRewrite           enum.Severity
 }
 
 func NewChangeSet(l *log.LogEntity) *ChangeSet {

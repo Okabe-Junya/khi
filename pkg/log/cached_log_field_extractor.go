@@ -24,15 +24,15 @@ import (
 // CachedLogFieldExtractor implements CommonLogFieldExtractor and call the parent CommonLogFieldExtractor only when it was needed
 // because accessing log fields from the Reader interface is a heavy operation.
 type CachedLogFieldExtractor struct {
-	id           string
 	timestamp    time.Time
-	hasTimestamp bool
-	mainMessage  string
-	severity     enum.Severity
-	displayID    string
 	parent       CommonLogFieldExtractor
+	id           string
+	mainMessage  string
+	displayID    string
 	logBody      string
+	severity     enum.Severity
 	lock         sync.Mutex
+	hasTimestamp bool
 }
 
 func NewCachedLogFieldExtractor(parent CommonLogFieldExtractor) *CachedLogFieldExtractor {

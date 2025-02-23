@@ -35,9 +35,9 @@ func TestMultiTokenStoreRefresher_Refresh(t *testing.T) {
 	testCase := []struct {
 		name                            string
 		stores                          []TokenStore
+		expectedRawTokens               []string
 		nextStoreIndexToRefreshFirst    int
 		nextStoreIndexToRefreshExpected int
-		expectedRawTokens               []string
 		wantErr                         bool
 	}{
 		{

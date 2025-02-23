@@ -28,10 +28,10 @@ import (
 )
 
 type testTaskDefinition struct {
+	runnable     Runnable
+	labels       *LabelSet
 	id           taskid.TaskImplementationId
 	dependencies []taskid.TaskReferenceId
-	labels       *LabelSet
-	runnable     Runnable
 }
 
 var _ Definition = (*testTaskDefinition)(nil)

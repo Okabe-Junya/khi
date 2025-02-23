@@ -162,8 +162,8 @@ func (c *GCPClientImpl) GetClusterNames(ctx context.Context, projectId string) (
 		Name string `json:"name"`
 	}
 	type clusterListResponse struct {
-		Clusters      []*gkeCluster `json:"clusters"`
 		NextPageToken string        `json:"nextPageToken"`
+		Clusters      []*gkeCluster `json:"clusters"`
 	}
 	var result []string
 	pc := NewPageClient[clusterListResponse](c.BaseClient)
@@ -194,8 +194,8 @@ func (c *GCPClientImpl) GetAnthosAWSClusterNames(ctx context.Context, projectId 
 		Name string `json:"name"`
 	}
 	type clusterListResponse struct {
-		AwsClusters   []*awsCluster `json:"awsClusters"`
 		NextPageToken string        `json:"nextPageToken"`
+		AwsClusters   []*awsCluster `json:"awsClusters"`
 	}
 
 	var result []string
@@ -243,8 +243,8 @@ func (c *GCPClientImpl) GetAnthosAzureClusterNames(ctx context.Context, projectI
 		Name string `json:"name"`
 	}
 	type clusterListResponse struct {
-		AzureClusters []*azureCluster `json:"azureClusters"`
 		NextPageToken string          `json:"nextPageToken"`
+		AzureClusters []*azureCluster `json:"azureClusters"`
 	}
 
 	var result []string
@@ -292,16 +292,16 @@ func (c *GCPClientImpl) GetAnthosOnBaremetalClusterNames(ctx context.Context, pr
 		// Ignoreing the other fields...
 	}
 	type clusterListResponse struct {
-		BaremetalClusters []*baremetalCluster `json:"bareMetalClusters"`
 		NextPageToken     string              `json:"nextPageToken"`
+		BaremetalClusters []*baremetalCluster `json:"bareMetalClusters"`
 	}
 	type baremetalAdminCluster struct {
 		Name string `json:"name"`
 		// Ignoreing the other fields...
 	}
 	type clusterAdminListResponse struct {
-		BaremetalAdminClusters []*baremetalAdminCluster `json:"bareMetalAdminClusters"`
 		NextPageToken          string                   `json:"nextPageToken"`
+		BaremetalAdminClusters []*baremetalAdminCluster `json:"bareMetalAdminClusters"`
 	}
 	wg := sync.WaitGroup{}
 	wg.Add(3)
@@ -377,16 +377,16 @@ func (c *GCPClientImpl) GetAnthosOnVMWareClusterNames(ctx context.Context, proje
 		// Ignoreing the other fields...
 	}
 	type clusterListResponse struct {
-		VMWareClusters []*vmwareCluster `json:"vmwareClusters"`
 		NextPageToken  string           `json:"nextPageToken"`
+		VMWareClusters []*vmwareCluster `json:"vmwareClusters"`
 	}
 	type vmwareAdminCluster struct {
 		Name string `json:"name"`
 		// Ignoreing the other fields...
 	}
 	type clusterAdminListResponse struct {
-		VMWareAdminClusters []*vmwareAdminCluster `json:"vmwareAdminClusters"`
 		NextPageToken       string                `json:"nextPageToken"`
+		VMWareAdminClusters []*vmwareAdminCluster `json:"vmwareAdminClusters"`
 	}
 	wg := sync.WaitGroup{}
 	wg.Add(3)
@@ -462,8 +462,8 @@ func (c *GCPClientImpl) GetFleetMembershipNames(ctx context.Context, projectId s
 		// Ignoreing the other fields...
 	}
 	type clusterAdminListResponse struct {
-		Resources     []*membershipResource `json:"resources"`
 		NextPageToken string                `json:"nextPageToken"`
+		Resources     []*membershipResource `json:"resources"`
 	}
 	pc := NewPageClient[clusterAdminListResponse](c.BaseClient)
 	membershipLists, err := pc.GetAll(ctx, func(hasToken bool, nextPageToken string) (*http.Request, error) {
@@ -495,8 +495,8 @@ func (c *GCPClientImpl) GetComposerEnvironmentNames(ctx context.Context, project
 		Name string `json:"name"`
 	}
 	type environmentListResponse struct {
-		Environments  []environment `json:"environments"`
 		NextPageToken string        `json:"nextPageToken"`
+		Environments  []environment `json:"environments"`
 	}
 
 	var result []string
@@ -541,16 +541,16 @@ func (c *GCPClientImpl) GetComposerEnvironmentNames(ctx context.Context, project
  */
 func (c *GCPClientImpl) ListLogEntries(ctx context.Context, projectId string, filter string, logSink chan any) error {
 	type logEntriesListRequest struct {
-		ResourceNames []string `json:"resourceNames"`
 		Filter        string   `json:"filter"`
 		OrderBy       string   `json:"orderBy"`
-		PageSize      int64    `json:"pageSize"`
 		PageToken     string   `json:"pageToken,omitempty"`
+		ResourceNames []string `json:"resourceNames"`
+		PageSize      int64    `json:"pageSize"`
 	}
 
 	type logEntriesListResponse struct {
-		Entries       []any  `json:"entries"`
 		NextPageToken string `json:"nextPageToken"`
+		Entries       []any  `json:"entries"`
 	}
 
 	defer close(logSink)

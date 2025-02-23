@@ -41,8 +41,8 @@ var colors = []string{
 
 type KHILogFormatHandler struct {
 	out       io.Writer
-	withColor bool
 	attrs     []slog.Attr
+	withColor bool
 }
 
 // Enabled implements slog.Handler.

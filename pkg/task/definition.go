@@ -76,10 +76,10 @@ func NewRunnableFunc(f func(ctx context.Context, v *VariableSet) error) Runnable
 }
 
 type ConstantDefinitionImpl struct {
-	id                taskid.TaskImplementationId
 	labels            *LabelSet
-	dependencies      []taskid.TaskReferenceId
 	runnableGenerator func(taskMode int) Runnable
+	id                taskid.TaskImplementationId
+	dependencies      []taskid.TaskReferenceId
 }
 
 // Dependencies implements Definition.

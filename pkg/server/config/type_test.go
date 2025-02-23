@@ -25,9 +25,9 @@ import (
 
 func TestNewGetConfigResponseFromParameters(t *testing.T) {
 	testCases := []struct {
-		name       string
 		viewerMode *bool
 		want       *GetConfigResponse
+		name       string
 	}{
 		{
 			name:       "viewer mode is nil",

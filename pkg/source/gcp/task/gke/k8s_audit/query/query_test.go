@@ -24,10 +24,10 @@ import (
 
 func TestGenerateK8sAuditQuery(t *testing.T) {
 	testCases := []struct {
-		ExpectedQuery        string
-		InputClusterName     string
 		InputKindFilter      *queryutil.SetFilterParseResult
 		InputNamespaceFilter *queryutil.SetFilterParseResult
+		ExpectedQuery        string
+		InputClusterName     string
 	}{
 		{
 			ExpectedQuery: `resource.type="k8s_cluster"
@@ -63,10 +63,10 @@ protoPayload.resourceName:"namespaces/"
 
 func TestGenerateK8sAuditQueryIsValid(t *testing.T) {
 	testCases := []struct {
-		Name            string
-		ClusterName     string
 		KindFilter      *queryutil.SetFilterParseResult
 		NamespaceFilter *queryutil.SetFilterParseResult
+		Name            string
+		ClusterName     string
 	}{
 		{
 			Name:            "ClusterScoped",
@@ -118,8 +118,8 @@ func TestGenerateK8sAuditQueryIsValid(t *testing.T) {
 
 func TestGenerateNamespaceFilter(t *testing.T) {
 	testCases := []struct {
-		ExpectedQuery string
 		Input         *queryutil.SetFilterParseResult
+		ExpectedQuery string
 	}{
 		{
 			ExpectedQuery: `-- Invalid: none of the resources will be selected. Ignoreing namespace filter.`,
@@ -199,8 +199,8 @@ func TestGenerateNamespaceFilter(t *testing.T) {
 
 func TestKindNameFilter(t *testing.T) {
 	testCases := []struct {
-		ExpectedQuery string
 		Input         *queryutil.SetFilterParseResult
+		ExpectedQuery string
 	}{
 		{
 			ExpectedQuery: `-- Failed to generate kind filter due to the validation error "test error"`,

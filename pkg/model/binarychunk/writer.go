@@ -43,12 +43,12 @@ type LargeBinaryWriter interface {
 
 // FileSystemBinaryWriter is a basic implementation of the LargeTextWriter.
 type FileSystemBinaryWriter struct {
+	file              *os.File
 	bufferIndex       int
 	maximumBufferSize int
 	currentLength     int
-	disposed          bool
-	file              *os.File
 	fileMutex         sync.Mutex
+	disposed          bool
 }
 
 var _ LargeBinaryWriter = (*FileSystemBinaryWriter)(nil)

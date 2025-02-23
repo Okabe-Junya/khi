@@ -33,9 +33,9 @@ type History struct {
 type Resource struct {
 	ResourceName     string                  `json:"name"`
 	Timeline         string                  `json:"timeline"`
-	Relationship     enum.ParentRelationship `json:"relationship"`
-	Children         []*Resource             `json:"children"`
 	FullResourcePath string                  `json:"path"`
+	Children         []*Resource             `json:"children"`
+	Relationship     enum.ParentRelationship `json:"relationship"`
 }
 
 type ResourceTimeline struct {
@@ -45,15 +45,13 @@ type ResourceTimeline struct {
 }
 
 type ResourceRevision struct {
-	Log        string                       `json:"log"`
-	Verb       enum.RevisionVerb            `json:"verb"`
+	ChangeTime time.Time                    `json:"changeTime"`
 	Requestor  *binarychunk.BinaryReference `json:"requestor"`
 	Body       *binarychunk.BinaryReference `json:"body"`
-	ChangeTime time.Time                    `json:"changeTime"`
+	Log        string                       `json:"log"`
+	Verb       enum.RevisionVerb            `json:"verb"`
 	State      enum.RevisionState           `json:"state"`
-
-	// DEPRECATED: This field is no longer used. Will be removed in near future.
-	Partial bool `json:"partial"`
+	Partial    bool                         `json:"partial"`
 }
 
 type ResourceEvent struct {
@@ -61,19 +59,14 @@ type ResourceEvent struct {
 }
 
 type SerializableLog struct {
-	// Common fields assigned by log entity
-	Timestamp time.Time `json:"ts"`
-	// ID is an actual unique ID of this log. This field must be unique. KHI uses `insertId`-`timestamp` for GCP log.
-	ID string `json:"id"`
-	// Display ID is a log ID directly visible to user. This field no need to be unique. KHI uses `insertId` for GCP log.
-	DisplayId string                       `json:"displayId"`
-	Body      *binarychunk.BinaryReference `json:"body"`
-
-	// These fields are managed by each parsers
-	Type        enum.LogType                 `json:"type"`
+	Timestamp   time.Time                    `json:"ts"`
+	Body        *binarychunk.BinaryReference `json:"body"`
 	Summary     *binarychunk.BinaryReference `json:"summary"`
-	Severity    enum.Severity                `json:"severity"`
+	ID          string                       `json:"id"`
+	DisplayId   string                       `json:"displayId"`
 	Annotations []any                        `json:"annotations"`
+	Type        enum.LogType                 `json:"type"`
+	Severity    enum.Severity                `json:"severity"`
 }
 
 func NewHistory() *History {

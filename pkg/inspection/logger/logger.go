@@ -33,8 +33,8 @@ type globalLoggerHandler struct {
 	defaultHandler slog.Handler
 	handlersLock   *sync.Mutex
 	handlers       *map[string]slog.Handler
-	attrs          []slog.Attr
 	group          string
+	attrs          []slog.Attr
 }
 
 var _ slog.Handler = (*globalLoggerHandler)(nil)

@@ -33,14 +33,14 @@ func setCommandlineArguments(t *testing.T, arguments []string) {
 
 func TestString(t *testing.T) {
 	testCases := []struct {
+		before    func()
+		after     func()
 		name      string
 		cmdArgKey string
 		envKey    string
 		value     string
-		cmdArgs   []string
-		before    func()
-		after     func()
 		want      string
+		cmdArgs   []string
 	}{
 		{
 			name:      "from command line argument",
@@ -125,13 +125,13 @@ func TestString(t *testing.T) {
 
 func TestBool(t *testing.T) {
 	testCases := []struct {
+		before    func()
+		after     func()
 		name      string
 		cmdArgKey string
 		envKey    string
-		value     bool
 		cmdArgs   []string
-		before    func()
-		after     func()
+		value     bool
 		want      bool
 	}{
 		{
@@ -245,13 +245,13 @@ func TestBool(t *testing.T) {
 
 func TestInt(t *testing.T) {
 	testCases := []struct {
+		before         func()
+		after          func()
 		name           string
 		cmdArgKey      string
 		envKey         string
-		value          int
 		cmdArgs        []string
-		before         func()
-		after          func()
+		value          int
 		want           int
 		wantErrOnParse bool
 	}{

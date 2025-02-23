@@ -28,9 +28,9 @@ import (
 )
 
 type mockHttpClientForPageClient struct {
-	CurrentCallCount int
 	Requests         []*http.Request
 	Response         []*http.Response
+	CurrentCallCount int
 }
 
 // DoWithContext implements HttpClient.

@@ -43,11 +43,11 @@ protoPayload:
     code: 200
 timestamp: 2024-01-01T00:00:00+09:00`
 	testCases := []struct {
-		name            string
-		testLogOpts     []testlog.TestLogOpt
 		expectedResult  *types.ResourceSpecificParserInput
-		expectedErr     bool
+		name            string
 		expectedErrMsg  string
+		testLogOpts     []testlog.TestLogOpt
+		expectedErr     bool
 		skipSubResource bool
 	}{
 		{

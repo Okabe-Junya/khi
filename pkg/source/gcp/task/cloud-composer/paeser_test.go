@@ -26,9 +26,9 @@ import (
 
 func TestAirflowSchedulerParser(t *testing.T) {
 	testCases := []struct {
+		expected *model.AirflowTaskInstance
 		name     string
 		text     string
-		expected *model.AirflowTaskInstance
 	}{
 		{
 			name: "scheduled",
@@ -122,9 +122,9 @@ func TestAirflowSchedulerParser(t *testing.T) {
 func Test__airflowWorkerRunningHostFn(t *testing.T) {
 	p := &airflowWorkerRunningHostFn{}
 	testCases := []struct {
+		expected *model.AirflowTaskInstance
 		name     string
 		yaml     string
-		expected *model.AirflowTaskInstance
 	}{
 		{
 			"queued",
@@ -177,9 +177,9 @@ func Test__airflowWorkerRunningHostFn(t *testing.T) {
 func Test__airflowWorkerMarkingStatusFn(t *testing.T) {
 	p := &airflowWorkerMarkingStatusFn{}
 	testCases := []struct {
+		expected *model.AirflowTaskInstance
 		name     string
 		yaml     string
-		expected *model.AirflowTaskInstance
 	}{
 		{
 			"success",
@@ -226,9 +226,9 @@ textPayload: "Marking task as SUCCESS. dag_id=airflow_monitoring, task_id=echo, 
 func TestDagProcessor(t *testing.T) {
 
 	testCases := []struct {
+		expected *model.DagFileProcessorStats
 		name     string
 		text     string
-		expected *model.DagFileProcessorStats
 	}{
 		{
 			"Real Data(with 7)",

@@ -40,13 +40,13 @@ func TestTouchResourceLease(t *testing.T) {
 		holderId    string
 	}
 	type testCase struct {
-		name               string
-		touches            []touch
-		resourceIdentifier string
 		time               time.Time
-		expectedId         string
 		expectedLeaseTime  time.Time
 		expectedErr        error
+		name               string
+		resourceIdentifier string
+		expectedId         string
+		touches            []touch
 	}
 	testCases := []testCase{
 		{

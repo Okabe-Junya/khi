@@ -67,9 +67,9 @@ func TestParseSummary(t *testing.T) {
 
 func TestParseRunPodSandboxLog(t *testing.T) {
 	testCases := []struct {
+		Expected *runPodSandboxLog
 		Name     string
 		Input    string
-		Expected *runPodSandboxLog
 	}{
 		{
 			Name:  "standard run pod log",
@@ -108,9 +108,9 @@ func TestParseRunPodSandboxLog(t *testing.T) {
 
 func TestParseCreateContainerLog(t *testing.T) {
 	testCases := []struct {
+		Expected *createContainerLog
 		Name     string
 		Input    string
-		Expected *createContainerLog
 	}{
 		{
 			Name:  "standard create container log",
@@ -143,10 +143,10 @@ func TestParseCreateContainerLog(t *testing.T) {
 
 func TestReadGoStructFromString(t *testing.T) {
 	testCases := []struct {
+		Expected   map[string]string
 		Name       string
 		Input      string
 		StructName string
-		Expected   map[string]string
 	}{
 		{
 			Name:       "An example RunPodSandbox log",

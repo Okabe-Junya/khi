@@ -42,7 +42,6 @@ type BuilderLogWalker = func(logIndex int, l *log.LogEntity) *ChangeSet
 // Builder builds History from ChangeSet obtained from parsers.
 type Builder struct {
 	history                *History
-	historyLock            sync.Mutex
 	binaryChunk            *binarychunk.Builder
 	timelinemap            *common.ShardingMap[*ResourceTimeline]
 	timelineBuilders       *common.ShardingMap[*TimelineBuilder]
@@ -50,6 +49,7 @@ type Builder struct {
 	historyResourceCache   *common.ShardingMap[*Resource]
 	sorter                 *ResourceSorter
 	ClusterResource        *resourceinfo.Cluster
+	historyLock            sync.Mutex
 }
 
 func NewBuilder(ioConfig *ioconfig.IOConfig) *Builder {

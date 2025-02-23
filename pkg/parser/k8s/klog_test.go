@@ -25,8 +25,8 @@ import (
 
 func TestParseKLogHeader(t *testing.T) {
 	testCases := []struct {
-		InputLog string
 		Expected *klogHeader
+		InputLog string
 	}{
 		{
 			InputLog: `I0930 00:01:02.500000    1992 prober.go:116] "Main message" fieldWithQuotes="foo" fieldWithEscape="bar \"qux\"" fieldWithoutQuotes=3.1415`,
@@ -52,9 +52,9 @@ func TestParseKLogHeader(t *testing.T) {
 
 func TestParseKLogMessageFragment(t *testing.T) {
 	testCases := []struct {
+		Expected         map[string]string
 		Name             string
 		InputLogFragment string
-		Expected         map[string]string
 	}{
 		{
 			Name:             "parse with basic types and escape",

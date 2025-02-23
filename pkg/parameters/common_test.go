@@ -27,9 +27,9 @@ import (
 
 func TestCommonParameters(t *testing.T) {
 	testCases := []struct {
-		name   string
 		want   *CommonParameters
 		before func()
+		name   string
 	}{
 		{
 			name: "default",

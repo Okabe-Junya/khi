@@ -24,11 +24,11 @@ import (
 )
 
 type commonLogFieldExtractorStub struct {
+	timestamp            time.Time
 	displayId            string
 	id                   string
 	message              string
 	severity             enum.Severity
-	timestamp            time.Time
 	callCountDisplayId   int
 	callCountId          int
 	callCountMainMessage int

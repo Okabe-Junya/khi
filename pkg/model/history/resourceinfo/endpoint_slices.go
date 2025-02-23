@@ -34,10 +34,10 @@ const (
 type EndppointSliceEndpointDiffOperation = string
 
 type EndpointSliceEndpointDiff struct {
-	Operation EndppointSliceEndpointDiffOperation
 	Current   *model.EndpointSliceEndpoint
 	Previous  *model.EndpointSliceEndpoint
 	TargetRef *model.K8sTargetRef
+	Operation EndppointSliceEndpointDiffOperation
 }
 
 type EndpointSliceInfo struct {

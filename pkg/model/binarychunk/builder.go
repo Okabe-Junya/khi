@@ -30,11 +30,10 @@ const MAXIMUM_CHUNK_SIZE = 1024 * 1024 * 500
 
 // Builder builds the list of binary data from given sequence of byte arrays.
 type Builder struct {
-	// Map between MD5 of given string and the reference of the buffer
-	tmpFolderPath  string
-	referenceCache *common.ShardingMap[*BinaryReference]
-	bufferWriters  []LargeBinaryWriter
 	compressor     Compressor
+	referenceCache *common.ShardingMap[*BinaryReference]
+	tmpFolderPath  string
+	bufferWriters  []LargeBinaryWriter
 	maxChunkSize   int
 	lock           sync.Mutex
 }

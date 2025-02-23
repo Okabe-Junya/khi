@@ -27,14 +27,13 @@ import (
 // These will be converted to the corresponding serializable types with some binary data stored in binarychunk.Builder.
 
 type StagingResourceRevision struct {
-	Verb      enum.RevisionVerb
-	Body      string
-	Requestor string
-	Partial   bool
-	// If this resource existence is inferred from another logs later.
-	Inferred   bool
 	ChangeTime time.Time
+	Body       string
+	Requestor  string
+	Verb       enum.RevisionVerb
 	State      enum.RevisionState
+	Partial    bool
+	Inferred   bool
 }
 
 func (r *StagingResourceRevision) commit(binaryBuilder *binarychunk.Builder, l *log.LogEntity) (*ResourceRevision, error) {

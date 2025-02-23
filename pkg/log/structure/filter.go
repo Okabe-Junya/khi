@@ -21,8 +21,8 @@ type ReaderFilter interface {
 }
 
 type FieldEqualityFilter struct {
-	fieldName string
 	equalTo   any
+	fieldName string
 }
 
 // Filter implements ReaderFilter.

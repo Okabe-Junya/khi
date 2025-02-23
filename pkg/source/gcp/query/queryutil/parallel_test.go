@@ -27,11 +27,11 @@ import (
 
 func TestDivideTimeSegments(t *testing.T) {
 	testCases := []struct {
-		name       string
 		startTime  time.Time
 		endTime    time.Time
-		splitCount int
+		name       string
 		expected   []time.Time
+		splitCount int
 	}{
 		{
 			name:       "No split",

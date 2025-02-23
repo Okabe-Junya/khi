@@ -32,8 +32,8 @@ type Compressor interface {
 
 type FileSystemGzipCompressor struct {
 	temporaryFolder string
-	disposed        bool
 	openedFiles     []*os.File
+	disposed        bool
 }
 
 var _ Compressor = (*FileSystemGzipCompressor)(nil)

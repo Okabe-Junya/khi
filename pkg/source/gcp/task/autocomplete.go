@@ -21,8 +21,8 @@ import (
 var AutocompleteClusterNamesTaskID = GCPPrefix + "autocomplete/cluster-names"
 
 type AutocompleteClusterNameList struct {
-	ClusterNames []string
 	Error        string
+	ClusterNames []string
 }
 
 func GetAutocompleteClusterNamesFromTaskVariable(v *task.VariableSet) (*AutocompleteClusterNameList, error) {

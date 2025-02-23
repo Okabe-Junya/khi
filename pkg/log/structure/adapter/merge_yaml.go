@@ -23,9 +23,9 @@ import (
 
 // MergeYamlAdapter implements ReaderDataAdapter to get the Reader of a merged Yaml from 2 yaml strings.
 type MergeYamlAdapter struct {
+	mergeConfigResolver *merger.MergeConfigResolver
 	prevYaml            string
 	currentYaml         string
-	mergeConfigResolver *merger.MergeConfigResolver
 }
 
 func MergeYaml(prevYaml string, currentYaml string, mergeConfigResolver *merger.MergeConfigResolver) *MergeYamlAdapter {

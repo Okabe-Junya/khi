@@ -36,9 +36,9 @@ func TestAuthParameters(t *testing.T) {
 	defer os.Setenv("GCP_ACCESS_TOKEN", accessTokenBefore)
 
 	testCases := []struct {
-		name   string
 		want   *AuthParameters
 		before func()
+		name   string
 	}{
 		{
 			name: "default",
@@ -80,9 +80,9 @@ func TestAuthParameters(t *testing.T) {
 
 func TestAuthParameters_GetOAuthConfig(t *testing.T) {
 	testCases := []struct {
-		name     string
 		params   *AuthParameters
 		expected *oauth2.Config
+		name     string
 	}{
 		{
 			name: "with values",
@@ -114,8 +114,8 @@ func TestAuthParameters_GetOAuthConfig(t *testing.T) {
 
 func TestAuthParameters_OAuthEnabled(t *testing.T) {
 	testCases := []struct {
-		name     string
 		params   *AuthParameters
+		name     string
 		expected bool
 	}{
 		{

@@ -25,11 +25,11 @@ import (
 )
 
 type resourceChunkSortStrategyTestCase struct {
+	ExpectedError error
 	Name          string
 	Chunk         []*Resource
 	Parents       []*Resource
 	ExpectedChunk []*Resource
-	ExpectedError error
 }
 
 func testResourceChunkSortStrategy(t *testing.T, name string, sortStrategy ResourceChunkSortStrategy, testCases ...resourceChunkSortStrategyTestCase) {

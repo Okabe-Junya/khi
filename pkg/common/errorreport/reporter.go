@@ -35,9 +35,9 @@ var DefaultErrorReporter *Reporter = &Reporter{
 
 // Reporter is an interface to record the error.
 type Reporter struct {
+	writer       ReportWriter
 	metadata     map[string]string
 	metadataLock sync.RWMutex
-	writer       ReportWriter
 }
 
 // ReportWriter is an interface to send an error.

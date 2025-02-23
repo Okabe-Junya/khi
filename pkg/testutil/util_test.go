@@ -56,8 +56,8 @@ func TestRemoveSlogTimestampFromLine(t *testing.T) {
 func TestResponseFromString(t *testing.T) {
 	t.Parallel()
 	type args struct {
-		code     int
 		response string
+		code     int
 	}
 	tests := []struct {
 		name     string

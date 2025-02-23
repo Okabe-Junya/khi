@@ -25,8 +25,8 @@ import (
 
 func TestYamlNodeStructuredData(t *testing.T) {
 	type valueTestCase struct {
-		field          string
 		value          any
+		field          string
 		isValueOfValue bool
 		wantErr        bool
 	}

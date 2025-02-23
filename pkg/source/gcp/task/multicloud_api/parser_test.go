@@ -24,8 +24,8 @@ import (
 
 func TestParseResourceNameOfMulticloudAPI(t *testing.T) {
 	testCases := []struct {
-		Input    string
 		Expected *multiCloudResource
+		Input    string
 	}{
 		{
 			Input: "projects/123456/locations/asia-southeast1/awsClusters/cluster-foo/awsNodePools/nodepool-bar",

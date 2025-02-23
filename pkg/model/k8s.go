@@ -81,17 +81,16 @@ type EndpointSliceEndpointConditions struct {
 }
 
 type EndpointSliceEndpoint struct {
-	Addresses  []string                         `yaml:"addresses"`
 	Conditions *EndpointSliceEndpointConditions `yaml:"conditions"`
 	TargetRef  *K8sTargetRef                    `yaml:"targetRef"`
 	NodeName   string                           `yaml:"nodeName"`
-	HostName   string                           `yaml:"hostName"` // This field maybe always empty in GKE
+	HostName   string                           `yaml:"hostName"`
+	Addresses  []string                         `yaml:"addresses"`
 }
 
 type EndpointSlice struct {
-	Endpoints []*EndpointSliceEndpoint `yaml:"endpoints"`
 	Metadata  *K8sObjectMeta           `yaml:"metadata"`
-	// the other fields are not used.
+	Endpoints []*EndpointSliceEndpoint `yaml:"endpoints"`
 }
 
 func (c *EndpointSliceEndpointConditions) SameWith(other *EndpointSliceEndpointConditions) bool {

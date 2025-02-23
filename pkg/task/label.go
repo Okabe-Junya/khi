@@ -54,8 +54,8 @@ type LabelOpt interface {
 }
 
 type labelAdder struct {
-	key   string
 	value any
+	key   string
 }
 
 // Write implements LabelOpt.
@@ -96,9 +96,9 @@ type LabelFilter interface {
 }
 
 type equalLabelFilter struct {
+	operand       any
 	labelKey      string
 	defaultResult bool
-	operand       any
 }
 
 // Filter implements LabelFilter.

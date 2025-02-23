@@ -36,26 +36,21 @@ type PopupForm interface {
 
 // PopupFormMetadata contains data needed for showing input ui on frontend side.
 type PopupFormMetadata struct {
-	// The title of this form
-	Title string
-	// Type of input field. Currently, only `text` or `popup_redirect` is the supported value.
-	Type string
-	// Description of this form.
+	Options     map[string]string `json:"options"`
+	Title       string
+	Type        string
 	Description string
 	Placeholder string
-
-	// The other option values of the request.
-	Options map[string]string `json:"options"`
 }
 
 // PopupFormRequest is a popup display request that is actually passed to the frontend.
 type PopupFormRequest struct {
+	Options     map[string]string `json:"options"`
 	Id          string            `json:"id"`
 	Title       string            `json:"title"`
 	Type        string            `json:"type"`
 	Description string            `json:"description"`
 	Placeholder string            `json:"placeholder"`
-	Options     map[string]string `json:"options"`
 }
 
 // PopupAnswerResponse is the container of the data to validate/answer shown popup form.
@@ -72,11 +67,11 @@ type PopupAnswerValidationResult struct {
 
 // PopupManager receives questions shown to user from frontend.
 type PopupManager struct {
-	newPopupLock        sync.Mutex
-	popupWaiter         sync.WaitGroup
-	popupResult         string
-	currentPopupRequest *PopupFormRequest
 	currentPopup        PopupForm
+	currentPopupRequest *PopupFormRequest
+	popupResult         string
+	popupWaiter         sync.WaitGroup
+	newPopupLock        sync.Mutex
 }
 
 func NewPopupManager() *PopupManager {

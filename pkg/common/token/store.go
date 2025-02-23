@@ -42,11 +42,11 @@ type TokenStore interface {
 // BasicTokenStore provides feature to refresh token and return cached token.
 // BasicTokenStore memory the expired tokens and it calls resolvers in order to get new token after MarkTokenExpired called.
 type BasicTokenStore struct {
-	tokenType             string
 	resolver              TokenResolver
-	tokenLock             sync.RWMutex
-	lastToken             *Token
 	lastTokenRefreshError error
+	lastToken             *Token
+	tokenType             string
+	tokenLock             sync.RWMutex
 }
 
 // Digest implements TokenStore.

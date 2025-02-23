@@ -39,8 +39,8 @@ type strategicMergePatchKeys struct {
 
 type strategicMergePatchArrayEleemnts struct {
 	Elements      []structuredata.StructureData
-	Replace       bool
 	DeletedFields []structuredata.StructureData
+	Replace       bool
 }
 
 type deleteFromPrimitiveListDirective struct {
@@ -52,13 +52,13 @@ type setElementOrderDirective struct {
 }
 
 type StrategicMergedStructureData struct {
-	path                             string
 	prev                             structuredata.StructureData
 	patch                            structuredata.StructureData
 	mergeKeyResolver                 *MergeConfigResolver
 	deleteFromPrimitiveListDirective *deleteFromPrimitiveListDirective
 	setElementOrderDirective         *setElementOrderDirective
 	arrayMergeResultSourceCache      *arrayMergeResultSourceCache
+	path                             string
 }
 
 func NewStrategicMergedStructureData(path string, prev structuredata.StructureData, patch structuredata.StructureData, mergeKeyResolver *MergeConfigResolver) *StrategicMergedStructureData {

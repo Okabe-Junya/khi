@@ -24,10 +24,10 @@ import (
 
 func TestKeyDiff(t *testing.T) {
 	testCase := []struct {
+		expected  *keyDiff
 		name      string
 		prevKeys  []string
 		patchKeys []string
-		expected  *keyDiff
 	}{
 		{
 			name:      "standard merge",

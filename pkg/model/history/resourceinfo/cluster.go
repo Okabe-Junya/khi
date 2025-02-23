@@ -34,15 +34,13 @@ const (
 // Cluster stores resource information(node name, Pod IP,Host IP...etc) used from another parser.
 // This struct must modify the own fields in thread safe.
 type Cluster struct {
-	lock           sync.Mutex
-	nodeNames      map[string]struct{}
-	EndpointSlices *EndpointSliceInfo
-	IPs            *resourcelease.ResourceLeaseHistory[*resourcelease.K8sResourceLeaseHolder]
-	// records lease history of NEG id to ServiceNetworkEndpointGroup
-	NEGs *resourcelease.ResourceLeaseHistory[*resourcelease.K8sResourceLeaseHolder]
-
+	nodeNames             map[string]struct{}
+	EndpointSlices        *EndpointSliceInfo
+	IPs                   *resourcelease.ResourceLeaseHistory[*resourcelease.K8sResourceLeaseHolder]
+	NEGs                  *resourcelease.ResourceLeaseHistory[*resourcelease.K8sResourceLeaseHolder]
 	NodeResourceLogBinder *noderesource.LogBinder
 	ContainerStatuses     *ContainerStatuses
+	lock                  sync.Mutex
 }
 
 func NewClusterResourceInfo() *Cluster {

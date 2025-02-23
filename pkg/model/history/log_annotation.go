@@ -26,8 +26,8 @@ type ResourceReferenceAnnotation struct {
 }
 
 type SerializableResourceReferenceAnnotation struct {
-	Type string                       `json:"type"`
 	Path *binarychunk.BinaryReference `json:"path"`
+	Type string                       `json:"type"`
 }
 
 var _ LogAnnotation = (*ResourceReferenceAnnotation)(nil)

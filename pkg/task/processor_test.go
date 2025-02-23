@@ -85,9 +85,9 @@ func TestProcessorTaskToBeCreatedWithGivenProperties(t *testing.T) {
 	}
 
 	cmpValues := []struct {
+		Label        *LabelSet
 		Id           string
 		Dependencies []string
-		Label        *LabelSet
 	}{
 		{
 			Id:           taskId,

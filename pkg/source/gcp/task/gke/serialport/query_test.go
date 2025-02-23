@@ -28,10 +28,10 @@ import (
 func TestGenerateSerialPortQuery(t *testing.T) {
 	testCases := []struct {
 		name               string
-		taskMode           int
+		wantQuery          string
 		nodeNames          []string
 		nodeNameSubstrings []string
-		wantQuery          string
+		taskMode           int
 	}{
 		{
 			name:               "dryrun",
@@ -125,8 +125,8 @@ func TestMaximumNodeCountNotHittingQueryLengthLimit(t *testing.T) {
 func Test_generateNodeNameSubstringLogFilter(t *testing.T) {
 	tests := []struct {
 		name               string
-		nodeNameSubstrings []string
 		want               string
+		nodeNameSubstrings []string
 	}{
 		{
 			name:               "empty",
